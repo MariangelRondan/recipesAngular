@@ -6,7 +6,7 @@ import { Subject } from "rxjs";
 
 @Injectable()
 export class RecipeService {
- 
+    recipesChanged = new Subject<Recipe[]>();
 
    private recipes: Recipe[] = [
         new Recipe("Potato soup", "the best tomato soup ever", "https://cdn.loveandlemons.com/wp-content/uploads/2023/01/tomato-soup-723x1024.jpg", [new Ingredient('meat', 1), new Ingredient('tomato', 6)]),
@@ -27,4 +27,20 @@ export class RecipeService {
         return this.recipes[index]
     }
     
+    addRecipe(recipe: Recipe){
+        this.recipes.push(recipe);
+        this.recipesChanged.next(this.recipes.slice())
+    }
+
+    updateRecipe(index: number, newRecipe: Recipe){
+        this.recipes[index] = newRecipe;
+        this.recipesChanged.next(this.recipes.slice())
+
+    }
+
+    deleteRecipe(index: number){
+        this.recipes.splice(index,1);
+        this.recipesChanged.next(this.recipes.slice())
+    }
+
 }
