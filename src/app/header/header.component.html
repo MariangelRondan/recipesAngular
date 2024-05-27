@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggler" (click)="collapsed = !collapsed">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a routerLink="/recipes" class="navbar-brand">Recipe Book</a>
+        </div>
+        <div class="collapse navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
+            <ul class="navbar-nav me-auto">
+                <li routerLinkActive="active" class="nav-item">
+                    <a class="nav-link" routerLink="/recipes">Recipes</a>
+                </li>
+                <li routerLinkActive="active" class="nav-item">
+                    <a class="nav-link" routerLink="/shopping-list">Shopping List</a>
+                </li>            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown" appDropdown>
+                    <a class="nav-link dropdown-toggle"style="cursor:pointer"  id="navbarDropdown" role="button" aria-expanded="false">
+                        Manage
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" style="cursor:pointer">Saving Data</a></li>
+                        <li><a class="dropdown-item" style="cursor:pointer" >Fetch Data</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

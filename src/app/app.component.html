@@ -1,12 +1,8 @@
-<h1>Please select Credential Types</h1>
-<select name="CPA" id="CPA">CPA</select>
-<select name="PTIN" id="CPA">PTIN</select>
-<select name="EA" id="CPA">EA</select>
-<button (click)="selectItem()">Generate</button>
+<app-header ></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12"></div>
+    <router-outlet></router-outlet>
+  </div>
 
-<p ngModel>Select * from table1  </p>
-
-
-
-
-<router-outlet />
+</div>
